@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.concurrentdemo.dao.UserDao">
+    <resultMap id="getUser" type="com.example.concurrentdemo.model.UserModel">
+        <result property="user_id" column="userId"/>
+        <result property="user_name" column="userName"/>
+        <result property="sex" column="sex"/>
+    </resultMap>
+    <select id="selectUsers" resultMap="userMap">
+        SELECT user_id, user_name, sex FROM User where user_id = {#userId}
+    </select>
+</mapper>
